@@ -18,30 +18,25 @@ export default {
   position: relative;
 
   h2 {
-    margin-bottom: 2rem;
-    font-family: Comfortaa, cursive;
-    font-size: 5rem;
-    letter-spacing: 2px;
-    color: $color-dark-two;
+    margin-bottom: 1.5rem;
+    font-size: 3.5rem;
+    color: $color-dark;
 
-    // IF BROWSER SUPORT BACKGROUND-CLIP: TEXT
-    @supports (-webkit-background-clip: text) {
-      background-image: linear-gradient(
-        to right,
-        $color-dark-two,
-        $color-purple
-      );
-      color: transparent;
-      -webkit-background-clip: text;
-      background-clip: text;
+    @include respond(lap) {
+      margin-bottom: 2rem;
+      font-size: 5rem;
+      letter-spacing: 2px;
     }
   }
 
   p {
-    width: 60%;
-    margin: 0 auto;
     font-size: 1.6rem;
     line-height: 1.6;
+
+    @include respond(lap) {
+      width: 60%;
+      margin: 0 auto;
+    }
   }
 
   &::after {
@@ -49,9 +44,13 @@ export default {
     position: absolute;
     width: 10rem;
     height: 0.3rem;
-    bottom: -3.5rem;
+    bottom: -2.5rem;
     border-radius: 0.3rem;
     background: $color-red;
+
+    @include respond(lap) {
+      bottom: -3.5rem;
+    }
   }
 
   &--center {

@@ -20,7 +20,7 @@ export default {
   position: relative;
   padding: 1.5rem 4rem;
   font-family: inherit;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: bold;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -38,7 +38,8 @@ export default {
     top: 0;
     width: 100%;
     height: 100%;
-    background: $color-purple;
+    // background: $color-purple;
+    background: linear-gradient(to right, $color-purple, $color-red);
     border-radius: 0.5rem;
     transform: scaleX(0);
     transform-origin: left;
@@ -48,6 +49,14 @@ export default {
 
   &:hover::after {
     transform: scaleX(1);
+  }
+
+  &--red {
+    background: $color-red;
+
+    // &:hover {
+
+    // }
   }
 }
 </style>

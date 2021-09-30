@@ -1,56 +1,80 @@
 <template>
   <div class="title">
-    <h1 class="title__name">
-      <span>Petrovic</span><br />
-      <span>Ivan</span>
+    <h1 class="title__name title-down">
+      Developing Beautiful Web Experiences
     </h1>
-    <span class="title__lines"></span>
-    <div class="title__skills">front end developer / <br />web designer</div>
-    <Button text="Get In Touch" @btn-click="$emit('showModal')" />
+    <p class="title__skills title-down">
+      Hello, I am Ivan Petrović
+    </p>
+    <Button
+      class="btn--red title-down"
+      text="Get In Touch"
+      @btn-click="$emit('showModal')"
+    />
   </div>
 </template>
 
 <script>
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
 import Button from '../Reusable/Button.vue';
+
 export default {
-  components: { Button }
+  components: { Button },
+  mounted() {
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from('.title-down', {
+      stagger: 0.5,
+      opacity: 0,
+      x: '-100px',
+      duration: 0.5,
+      delay: 1
+    });
+  }
 };
 </script>
 
 <style lang="scss" scoped>
 .title {
   color: $color-white;
+  text-align: center;
 
-  &__name {
-    font-size: 10rem;
-    letter-spacing: 2px;
-    font-family: Comfortaa, cursive;
+  @include respond(tab) {
+    width: 60%;
+    margin: 0 auto;
   }
 
-  &__lines {
-    position: relative;
+  @include respond(lap) {
+    width: 45%;
+    margin: 0;
+    text-align: left;
+  }
 
-    &::after {
-      content: '';
-      position: absolute;
-      top: 20px;
-      left: 50px;
+  &__name {
+    font-size: 3.5rem;
+    letter-spacing: 2px;
+    font-weight: bold;
+
+    @include respond(tab) {
+      font-size: 5.5rem;
     }
 
-    &,
-    &::after {
-      display: inline-block;
-      width: 100px;
-      height: 5px;
-      border-radius: 0.5rem;
-      background: linear-gradient(to right, $color-purple, $color-red);
+    @include respond(big) {
+      font-size: 6.5rem;
     }
   }
 
   &__skills {
-    margin: 4rem 0;
-    font-size: 2rem;
-    letter-spacing: 2px;
+    margin: 2rem 0;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: $color-blue;
+
+    @include respond(tab) {
+      margin: 3rem 0;
+    }
   }
 }
 </style>

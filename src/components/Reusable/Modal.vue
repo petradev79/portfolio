@@ -5,6 +5,7 @@ a<template>
         <div v-show="isModalVisible" class="modal">
           <div class="modal__content">
             <Title
+              class="title--center"
               title="Get in Touch"
               text="Let's work together or share some thoughts!"
             />
@@ -35,12 +36,8 @@ a<template>
             </div>
           </div>
 
-          <!-- <div class="modal__phone">
-            <img src="@/assets/img/phone-model.png" alt="Phone Image" />
-          </div> -->
-
           <div class="modal__close" @click="close">
-            <!-- <i class="fas fa-times"></i> -->X
+            <i class="fas fa-times"></i>
           </div>
         </div>
       </transition>
@@ -82,7 +79,7 @@ export default {
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba($color-black, 0.3);
   z-index: 100;
 }
 
@@ -91,18 +88,20 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 10rem 5rem;
-  width: 100%;
-  max-width: 50rem;
-  height: 80vh;
-  background: #ffffff;
+  // padding: 5rem;
+  width: 90%;
+  max-width: 60rem;
+  // height: 80vh;
+  background-color: $color-white;
+
   border-radius: 1rem;
-  box-shadow: -2rem 2rem 2rem rgba(0, 0, 0, 0.3);
+  box-shadow: 2rem 2rem 2rem rgba($color-black, 0.3);
 
   &__content {
     // width: 80%;
     height: 100%;
-    // border: 1px solid red;
+    padding: 5rem;
+    border: 1px solid red;
 
     display: flex;
     flex-direction: column;
@@ -148,24 +147,9 @@ export default {
     }
   }
 
-  &__phone {
-    position: absolute;
-    right: 3rem;
-    // right: -1rem;
-    top: 5rem;
-    // top: 0;
-    height: calc(80vh - 10rem);
-    // height: 100%;
-    z-index: -1;
-
-    img {
-      height: 100%;
-    }
-  }
-
   &__close {
     position: absolute;
-    left: 5rem;
+    right: 5rem;
     top: 5rem;
     color: #912222;
     font-size: 3rem;
