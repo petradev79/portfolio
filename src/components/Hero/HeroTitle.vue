@@ -1,13 +1,13 @@
 <template>
   <div class="title">
-    <h1 class="title__name title-down">
+    <h1 class="title__main title-right">
       Developing Beautiful Web Experiences
     </h1>
-    <p class="title__skills title-down">
+    <p class="title__sub title-right">
       Hello, I am Ivan Petrović
     </p>
     <Button
-      class="btn--red title-down"
+      class="btn--red title-right"
       text="Get In Touch"
       @btn-click="$emit('showModal')"
     />
@@ -25,8 +25,8 @@ export default {
   mounted() {
     gsap.registerPlugin(ScrollTrigger);
 
-    gsap.from('.title-down', {
-      stagger: 0.5,
+    gsap.from('.title-right', {
+      stagger: 0.3,
       opacity: 0,
       x: '-100px',
       duration: 0.5,
@@ -52,8 +52,8 @@ export default {
     text-align: left;
   }
 
-  &__name {
-    font-size: 3.5rem;
+  &__main {
+    font-size: 4rem;
     letter-spacing: 2px;
     font-weight: bold;
 
@@ -66,7 +66,7 @@ export default {
     }
   }
 
-  &__skills {
+  &__sub {
     margin: 2rem 0;
     font-size: 1.6rem;
     font-weight: bold;

@@ -39,7 +39,7 @@ export default {
     width: 100%;
     height: 100%;
     // background: $color-purple;
-    background: linear-gradient(to right, $color-purple, $color-red);
+    // background: linear-gradient(to right, $color-purple, $color-red);
     border-radius: 0.5rem;
     transform: scaleX(0);
     transform-origin: left;
@@ -54,9 +54,17 @@ export default {
   &--red {
     background: $color-red;
 
-    // &:hover {
+    &::after {
+      background: linear-gradient(to right, $color-purple, $color-red);
+    }
+  }
 
-    // }
+  &--purple {
+    background: $color-purple;
+
+    &::after {
+      background: linear-gradient(to right, $color-red, $color-purple);
+    }
   }
 }
 </style>

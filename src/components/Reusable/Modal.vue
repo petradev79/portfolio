@@ -5,7 +5,6 @@ a<template>
         <div v-show="isModalVisible" class="modal">
           <div class="modal__content">
             <Title
-              class="title--center"
               title="Get in Touch"
               text="Let's work together or share some thoughts!"
             />

@@ -46,7 +46,7 @@ export default {
     tl.from('.skill', {
       stagger: 0.3,
       opacity: 0,
-      duration: 0.7
+      duration: 0.5
     }).from('.skills-watermark', {
       opacity: 0,
       duration: 0.5

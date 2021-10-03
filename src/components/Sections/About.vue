@@ -18,9 +18,9 @@
             />
           </svg>
         </div>
-        <h3 class="card__title">
+        <h4 class="card__title">
           Responsive Design
-        </h3>
+        </h4>
         <p class="card__text">
           Research shows that around 51 percent of the global mobile users
           currently access the internet via only their smartphone.
@@ -102,38 +102,38 @@ export default {
     });
 
     tl.from('.card', {
-      stagger: 0.7,
+      stagger: 0.5,
       opacity: 0,
-      duration: 0.7
+      duration: 0.5
     })
       .from(
         '.card__title',
         {
-          stagger: 0.7,
+          stagger: 0.5,
           opacity: 0,
-          duration: 0.7
+          duration: 0.5
         },
-        '-=2'
+        '-=1'
       )
       .from(
         '.card__text',
         {
-          stagger: 0.7,
+          stagger: 0.5,
           opacity: 0,
           y: '-3rem',
-          duration: 0.7
+          duration: 0.5
         },
-        '-=2'
+        '-=1'
       )
       .from(
         '.card__icon',
         {
-          stagger: 0.7,
+          stagger: 0.5,
           opacity: 0,
           y: '3rem',
-          duration: 0.7
+          duration: 0.5
         },
-        '-=2'
+        '-=1.5'
       );
   }
 };

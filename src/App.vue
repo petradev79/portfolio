@@ -10,7 +10,6 @@
   <section class="section-about">
     <div class="container">
       <Title
-        class="title--center title-about"
         title="About my Work"
         text="Hello, my name is Ivan Petrović Frontend Developer and Web Designer from Serbia, currently working as a freelancer."
       />
@@ -34,7 +33,6 @@
     </div>
     <div class="container">
       <Title
-        class="title--center title-skills"
         title="About my Skills"
         text="Being a person always willing to learn new skills and techniques I enjoy being challenged and improving my knowledge!"
       />
@@ -42,13 +40,17 @@
     </div>
   </section>
 
-  <div style="height: 100rem">
-    <h3>
-      I have a passion for coffee, design and develop things. My recipe for
-      success - love what you do, always learn new things and never stop
-      practice!
-    </h3>
-  </div>
+  <section class="section-projects">
+    <div class="container">
+      <Title
+        title="Latest Projects"
+        text="Perfection is achieved when there is nothing left to take away. My recipe for success - love what you do, always learn new things and never stop practice!"
+      />
+      <Projects />
+    </div>
+  </section>
+
+  <div style="height: 100rem"></div>
 </template>
 
 <script>
@@ -60,10 +62,11 @@ import Hero from './components/Hero/Hero';
 import Title from './components/Reusable/Title';
 import About from './components/Sections/About';
 import Skills from './components/Sections/Skills';
+import Projects from './components/Sections/Projects';
 
 export default {
   name: 'App',
-  components: { Modal, Hero, Title, About, Skills },
+  components: { Modal, Hero, Title, About, Skills, Projects },
   data() {
     return {
       isModalVisible: false
@@ -71,25 +74,18 @@ export default {
   },
   mounted() {
     gsap.registerPlugin(ScrollTrigger);
+    const titles = gsap.utils.toArray('.title');
 
-    gsap.from('.title-about', {
-      scrollTrigger: {
-        trigger: '.title-about',
-        toggleActions: 'play none none none'
-      },
-      opacity: 0,
-      scale: 0.8,
-      duration: 1
-    });
-
-    gsap.from('.title-skills', {
-      scrollTrigger: {
-        trigger: '.title-skills',
-        toggleActions: 'play none none none'
-      },
-      opacity: 0,
-      scale: 0.8,
-      duration: 1
+    titles.forEach(title => {
+      gsap.from(title, {
+        scrollTrigger: {
+          trigger: title,
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        scale: 0.7,
+        duration: 0.5
+      });
     });
   },
   methods: {
@@ -140,5 +136,13 @@ section {
       opacity: 1;
     }
   }
+}
+
+.section-projects {
+  background: linear-gradient(
+    to bottom,
+    lighten($color-blue, 34%),
+    $color-white
+  );
 }
 </style>

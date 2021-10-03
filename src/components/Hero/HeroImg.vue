@@ -81,59 +81,59 @@ export default {
     tl.from('.first', {
       opacity: 0,
       scale: 0,
-      duration: 0.5,
+      duration: 0.4,
       delay: 2
     })
       .from('.second-left-1', {
         opacity: 0,
         x: '150px',
-        duration: 0.5
+        duration: 0.4
       })
       .from(
         '.second-up-1',
         {
           opacity: 0,
           y: '150px',
-          duration: 0.5
+          duration: 0.4
         },
-        '-=.5'
+        '-=.4'
       )
       .from('.second-left-2', {
         opacity: 0,
         x: '300px',
-        duration: 1
+        duration: 0.8
       })
       .from(
         '.second-up-2',
         {
           opacity: 0,
           y: '300px',
-          duration: 1
+          duration: 0.8
         },
-        '-=1'
+        '-=.8'
       )
       .from('.third-1', {
         opacity: 0,
         x: '150px',
-        duration: 0.5
+        duration: 0.4
       })
       .from(
         '.third-2',
         {
           opacity: 0,
           x: '-150px',
-          duration: 0.5
+          duration: 0.4
         },
-        '-=.5'
+        '-=.4'
       )
       .from(
         '.third-3',
         {
           opacity: 0,
           y: '-150px',
-          duration: 0.5
+          duration: 0.4
         },
-        '-=.5'
+        '-=.4'
       );
   }
 };
