@@ -52,7 +52,7 @@ export default {
   components: { Title },
   data() {
     return {
-      email: 'petraivan1010@gmail.com'
+      email: 'petraivan1010@gmail.com',
     };
   },
   methods: {
@@ -66,8 +66,8 @@ export default {
       const email = document.getElementById('email');
       email.select();
       navigator.clipboard.writeText(email.value);
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -91,10 +91,17 @@ export default {
   width: 90%;
   max-width: 60rem;
   // height: 80vh;
-  background-color: $color-white;
+  // background-color: $color-white;
 
   border-radius: 1rem;
   box-shadow: 2rem 2rem 2rem rgba($color-black, 0.3);
+
+  @supports (backdrop-filter: blur(1rem)) {
+    & {
+      background-color: rgba($color-white, 0.4);
+      backdrop-filter: blur(3rem);
+    }
+  }
 
   &__content {
     // width: 80%;

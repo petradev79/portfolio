@@ -97,21 +97,21 @@ export default {
     let tl = gsap.timeline({
       scrollTrigger: {
         trigger: '.about',
-        toggleActions: 'restart none none reset'
-      }
+        toggleActions: 'restart none none reset',
+      },
     });
 
     tl.from('.card', {
       stagger: 0.5,
       opacity: 0,
-      duration: 0.5
+      duration: 0.5,
     })
       .from(
         '.card__title',
         {
           stagger: 0.5,
           opacity: 0,
-          duration: 0.5
+          duration: 0.5,
         },
         '-=1'
       )
@@ -121,7 +121,7 @@ export default {
           stagger: 0.5,
           opacity: 0,
           y: '-3rem',
-          duration: 0.5
+          duration: 0.5,
         },
         '-=1'
       )
@@ -131,11 +131,11 @@ export default {
           stagger: 0.5,
           opacity: 0,
           y: '3rem',
-          duration: 0.5
+          duration: 0.5,
         },
         '-=1.5'
       );
-  }
+  },
 };
 </script>
 
@@ -167,7 +167,7 @@ export default {
   }
 
   &:not(:last-child) {
-    margin-bottom: 3rem;
+    margin-bottom: 5rem;
 
     @include respond(lap) {
       margin: 0;
@@ -180,9 +180,24 @@ export default {
     background: $color-white;
     border-radius: 2rem;
     box-shadow: 1rem 1rem 1rem 0 rgba($color-black, 0.3);
+    cursor: pointer;
+    transition: 0.5s all ease-in-out;
 
     @include respond(lap) {
       padding: 6rem 2rem 4rem;
+    }
+
+    &:hover {
+      @supports (backdrop-filter: blur(1rem)) {
+        & {
+          background-color: rgba($color-white, 0.4);
+          backdrop-filter: blur(0.3rem);
+        }
+      }
+
+      .card__text {
+        color: darken($color-text, 30%);
+      }
     }
   }
 
@@ -203,6 +218,7 @@ export default {
     position: absolute;
     width: 100%;
     height: 5rem;
+    height: calc(100% + 2rem);
     left: 0;
     top: -1rem;
     border-radius: 2rem;
@@ -220,7 +236,13 @@ export default {
   }
 
   &--dinamic::after {
-    background: $color-purple;
+    background: lighten($color-purple, 35%);
+
+    @include respond(tab) {
+      height: calc(100% + 3rem);
+      top: -1rem;
+      transform: rotate(-5deg);
+    }
   }
 
   &--animation::after {

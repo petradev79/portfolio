@@ -26,13 +26,15 @@ export default {
     gsap.registerPlugin(ScrollTrigger);
 
     gsap.from('.title-right', {
-      stagger: 0.3,
       opacity: 0,
-      x: '-100px',
-      duration: 0.5,
-      delay: 1
+      x: -100,
+      delay: 1,
+      ease: 'back(3)',
+      stagger: {
+        amount: 1,
+      },
     });
-  }
+  },
 };
 </script>
 
